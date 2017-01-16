@@ -6,7 +6,7 @@
  * @author Sunil Sadasivan <sunil@fancite.com>
  * @author Bo-Yi Wu <appleboy.tw@gmail.com>
  */
-class Lib_gearman
+class Gearman
 {
 
     public $gearman_host = array();
