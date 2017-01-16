@@ -6,7 +6,7 @@ class Welcome extends CI_Controller {
   /**
 	 ** Initial implementation
 	 ** @TODO Clean up and build smarter implementation
-	 ** For this application and comes up with all values 
+	 ** For this application and comes up with all values
 	 **/
 	public function index()
 	{
