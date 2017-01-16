@@ -23,4 +23,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     {
         $this->CI = & get_instance();
     }
+
  }
