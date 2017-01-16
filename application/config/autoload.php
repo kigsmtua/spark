@@ -103,7 +103,7 @@ $autoload['helper'] = array('url','file');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('gearman');
+$autoload['config'] = array('gearman','mailgun');
 
 /*
 | -------------------------------------------------------------------
