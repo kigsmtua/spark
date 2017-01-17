@@ -90,7 +90,6 @@ $autoload['drivers'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 $autoload['helper'] = array('url','file');
-
 /*
 | -------------------------------------------------------------------
 |  Auto-load Config files
@@ -103,8 +102,7 @@ $autoload['helper'] = array('url','file');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('gearman','mailgun');
-
+$autoload['config'] = array('gearman','mailgun','authentication','db_tables');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Language files
