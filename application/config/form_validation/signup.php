@@ -20,7 +20,7 @@ $CI =& get_instance();
 $CI->load->model('validation_callables');
 
 // Login ---------------------------
-$config['login_rules'] = [
+$config[''] = [
 	[
 		'field' => 'login_string',
 		'label' => 'USERNAME OR EMAIL ADDRESS',
