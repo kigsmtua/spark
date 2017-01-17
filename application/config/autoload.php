@@ -102,7 +102,7 @@ $autoload['helper'] = array('url','file');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('gearman','mailgun','authentication','db_tables');
+$autoload['config'] = array('gearman','mailgun','authentication','db_tables','password_strength');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Language files
