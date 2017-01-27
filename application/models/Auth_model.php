@@ -84,11 +84,11 @@ class Auth_model extends MY_Model
    {
      if( config_item('disallow_multiple_logins') === TRUE )
      {
-       $this->db->where( 'user_id', $user_id )
+       $this->db->where( 'userID', $user_id )
          ->delete( config_item('auth_sessions_table') );
      }
-     $data = ['last_login' => $login_time];
-     $this->db->where( 'user_id' , $user_id )
+     $data = ['dateLastActive' => $login_time];
+     $this->db->where( 'userID' , $user_id )
        ->update( config_item('user_table') , $data );
      $data = [
        'id'         => $session_id,
@@ -115,36 +115,29 @@ class Auth_model extends MY_Model
     */
    public function check_login_status( $user_id, $login_time )
    {
-     // Selected user table data
      $selected_columns = [
-       'u.username',
-       'u.email',
+       'u.userName',
+       'u.emailAddress',
        'u.auth_level',
        'u.user_id',
        'u.banned'
      ];
-
      $this->db->select( $selected_columns )
        ->from( config_item('user_table') . ' u' )
        ->join( config_item('auth_sessions_table') . ' s', 'u.user_id = s.user_id' )
        ->where( 's.user_id', $user_id )
        ->where( 's.login_time', $login_time );
-
      if( is_null( $this->session->regenerated_session_id ) )
      {
        $this->db->where( 's.id', $this->session->session_id );
      }
-
      // If it was regenerated, we can only compare the old session ID for this request
      else
      {
        $this->db->where( 's.id', $this->session->pre_regenerated_session_id );
      }
-
      $this->db->limit(1);
      $query = $this->db->get();
-
-
      if( $query->num_rows() == 1 )
      {
        $row = $query->row_array();
@@ -241,7 +234,6 @@ class Auth_model extends MY_Model
 
   /**
    * Check that the username or email address is not on hold
-   *
    * @param   bool   if check is from recovery (FALSE if from login)
    * @return  bool
    */

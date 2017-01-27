@@ -10,15 +10,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
  */
 
-///@TODO Make sure  application values that a
-class Site extends CI_Controller
+require_once APPPATH . 'core/Auth_Controller.php';
+
+class Site extends Auth_Controller
 {
   function __construct()
   {
       parent::__construct();
   }
-
-
   public function index(){
 
   }
