@@ -9,7 +9,7 @@
                 <h4 class="text-center mb5">Already a Member?</h4>
                 <p class="text-center">Sign in to your account</p>
                 <div class="mb30"></div>
-                <form action="<?php echo base_url()?>welcome/dashboard" method="post">
+                <form action="<?php echo base_url()?>site/login" method="post">
                     <div class="input-group mb15">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input type="text" class="form-control" placeholder="Username">

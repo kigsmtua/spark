@@ -80,7 +80,6 @@ class Auth_Controller extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-
 		/**
 		 * Set no-cache headers so pages are never cached by the browser.
 		 * This is necessary because if the browser caches a page, the
@@ -90,23 +89,19 @@ class Auth_Controller extends CI_Controller {
 	 	header('Expires: Wed, 13 Dec 1972 18:37:00 GMT');
 		header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		header('Pragma: no-cache');
-
 		/**
 		 * Set the request protocol
 		 */
 		if( is_https() )
 			$this->protocol = 'https';
-
 		/**
 		 * If the http user cookie is set, make user data available in views
 		 */
 		if( get_cookie( config_item('http_user_cookie_name') ) )
 		{
 			$http_user_data = unserialize_data( get_cookie( config_item('http_user_cookie_name') ) );
-
-			$this->load->vars( $http_user_data );
+  		$this->load->vars( $http_user_data );
 		}
-
 		//$this->output->enable_profiler();
 	}
 
@@ -318,19 +313,14 @@ class Auth_Controller extends CI_Controller {
 		{
 			return TRUE;
 		}
-
 		$this->auth_data = $this->authentication->check_login( $level );
-
 		// Set user variables if user is logged in
 		if( $this->auth_data )
 			$this->_set_user_variables();
-
 		// Call the post auth hook
 		$this->post_auth_hook();
-
 		if( $this->auth_data )
 			return TRUE;
-
 		return FALSE;
 	}
 
@@ -437,20 +427,17 @@ class Auth_Controller extends CI_Controller {
 		{
 			$view_data['on_hold_message'] = 1;
 		}
-
 		// This check for on hold is for normal login attempts
 		else if( $on_hold = $this->authentication->current_hold_status() )
 		{
 			$view_data['on_hold_message'] = 1;
 		}
-
 		// Display a login error message if there was a form post
 		if( $this->authentication->login_error === TRUE )
 		{
 			// Display a failed login attempt message
 			$view_data['login_error_mesg'] = 1;
 		}
-
 		// Redirect to specified page
 		$redirect = $this->input->get('redirect')
 			? '?redirect=' . $this->input->get('redirect')
@@ -459,20 +446,16 @@ class Auth_Controller extends CI_Controller {
 		if( $optional_login )
 		{
 			$redirect = '?redirect=' . urlencode( $this->uri->uri_string() );
-
 			$view_data['optional_login'] = TRUE;
 		}
-
 		// Set the link protocol
 		$link_protocol = USE_SSL ? 'https' : NULL;
-
 		// Load URL helper for site_url function
 		$this->load->helper('url');
-
 		// Set the login URL
 		$view_data['login_url'] = site_url( LOGIN_PAGE . $redirect, $link_protocol );
-
 		$this->load->vars( $view_data );
+		
 	}
 
 	// --------------------------------------------------------------

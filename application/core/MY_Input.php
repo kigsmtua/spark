@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 /**
  * Community Auth - Input Class Extension
  *
@@ -121,7 +120,7 @@ class MY_Input extends CI_Input {
 	/**
 	* Fetch an item from the COOKIE array
 	*
-	* If the requested cookie is not the 
+	* If the requested cookie is not the
 	* session cookie, we need to decode it.
 	*
 	* This whole method should be considered modified.
@@ -150,4 +149,4 @@ class MY_Input extends CI_Input {
 }
 
 /* End of file MY_Input.php */
-/* Location: /community_auth/core/MY_Input.php */ 
+/* Location: /community_auth/core/MY_Input.php */
