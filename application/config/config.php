@@ -39,6 +39,17 @@ $config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
+| Theme  Location
+|--------------------------------------------------------------------------
+|
+| This is the name of the theme that is being used in the application
+| that being the default Theme
+|
+*/
+$config['theme_url'] = 'default';
+
+/*
+|--------------------------------------------------------------------------
 | URI PROTOCOL
 |--------------------------------------------------------------------------
 |
@@ -100,7 +111,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

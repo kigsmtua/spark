@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
  class Auditlog{
-   
+
    /**
     ** Main CI application loaded
     ** @object
@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      ** Application constructor
      **/
     function __construct(){
-
+       $this->CI = &get_instance();
     }
 
  }
