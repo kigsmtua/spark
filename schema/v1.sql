@@ -16,6 +16,57 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `auth_sessions`
+--
+
+DROP TABLE IF EXISTS `auth_sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_sessions` (
+  `id` varchar(40) NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `login_time` datetime DEFAULT NULL,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ip_address` varchar(45) NOT NULL,
+  `user_agent` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `ci_sessions`
+--
+
+DROP TABLE IF EXISTS `ci_sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ci_sessions` (
+  `id` varchar(40) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) unsigned NOT NULL DEFAULT '0',
+  `data` blob NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ci_sessions_timestamp` (`timestamp`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `denied_access`
+--
+
+DROP TABLE IF EXISTS `denied_access`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `denied_access` (
+  `ai` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(45) NOT NULL,
+  `time` datetime NOT NULL,
+  `reason_code` tinyint(1) unsigned DEFAULT '0',
+  PRIMARY KEY (`ai`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `groups`
 --
 
@@ -29,17 +80,39 @@ CREATE TABLE `groups` (
   `dateCreated` datetime NOT NULL,
   `createdBy` int(11) NOT NULL,
   PRIMARY KEY (`groupID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `groups`
+-- Table structure for table `ips_on_hold`
 --
 
-LOCK TABLES `groups` WRITE;
-/*!40000 ALTER TABLE `groups` DISABLE KEYS */;
-/*!40000 ALTER TABLE `groups` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `ips_on_hold`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ips_on_hold` (
+  `ai` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(45) NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`ai`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `login_errors`
+--
+
+DROP TABLE IF EXISTS `login_errors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `login_errors` (
+  `ai` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username_or_email` varchar(255) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`ai`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `modules`
@@ -59,15 +132,6 @@ CREATE TABLE `modules` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `modules`
---
-
-LOCK TABLES `modules` WRITE;
-/*!40000 ALTER TABLE `modules` DISABLE KEYS */;
-/*!40000 ALTER TABLE `modules` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `passwordStatuses`
 --
 
@@ -81,17 +145,8 @@ CREATE TABLE `passwordStatuses` (
   `dateCreated` datetime NOT NULL,
   `createdBy` int(11) NOT NULL,
   PRIMARY KEY (`passwordStatusID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `passwordStatuses`
---
-
-LOCK TABLES `passwordStatuses` WRITE;
-/*!40000 ALTER TABLE `passwordStatuses` DISABLE KEYS */;
-/*!40000 ALTER TABLE `passwordStatuses` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `permissions`
@@ -108,15 +163,6 @@ CREATE TABLE `permissions` (
   PRIMARY KEY (`permissionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `permissions`
---
-
-LOCK TABLES `permissions` WRITE;
-/*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `userGroups`
@@ -136,17 +182,23 @@ CREATE TABLE `userGroups` (
   KEY `fk_userGroups_2_idx` (`groupID`),
   CONSTRAINT `fk_userGroups_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_userGroups_2` FOREIGN KEY (`groupID`) REFERENCES `groups` (`groupID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `userGroups`
+-- Table structure for table `username_or_email_on_hold`
 --
 
-LOCK TABLES `userGroups` WRITE;
-/*!40000 ALTER TABLE `userGroups` DISABLE KEYS */;
-/*!40000 ALTER TABLE `userGroups` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `username_or_email_on_hold`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `username_or_email_on_hold` (
+  `ai` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username_or_email` varchar(255) NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`ai`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `users`
@@ -173,17 +225,8 @@ CREATE TABLE `users` (
   KEY `fk_users_2_idx` (`passwordStatus`),
   CONSTRAINT `fk_users_1` FOREIGN KEY (`userGroupID`) REFERENCES `userGroups` (`userGroupID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_2` FOREIGN KEY (`passwordStatus`) REFERENCES `passwordStatuses` (`passwordStatusID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -194,4 +237,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-16 11:30:07
+-- Dump completed on 2017-01-27 21:25:16

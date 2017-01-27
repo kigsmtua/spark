@@ -58,8 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','session','gearman');
-
+$autoload['libraries'] = array('database','session','gearman','form_validation','encryption','tokens');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers
@@ -89,7 +88,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','file');
+$autoload['helper'] = array('url','file','theme','serialization','cookie','form');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Config files
@@ -130,4 +129,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array();
+$autoload['model'] = array('auth_model');

@@ -134,7 +134,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $this->CI->load->library('encryption');
         $auth_identifiers = $this->CI->encryption->decrypt( $auth_identifiers );
       }
-
       $this->auth_identifiers = unserialize( $auth_identifiers );
     }
   }
