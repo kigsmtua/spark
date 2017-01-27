@@ -9,6 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @copyright   Copyright (c) 2017 - 2021, John Kiragu. (http://.com/)
  * @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
  */
+
+///@TODO build base application controller
 require_once APPPATH . 'core/Auth_Controller.php';
 
 class Site extends Auth_Controller
