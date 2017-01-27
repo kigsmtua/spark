@@ -34,15 +34,6 @@ CREATE TABLE `auth_sessions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `auth_sessions`
---
-
-LOCK TABLES `auth_sessions` WRITE;
-/*!40000 ALTER TABLE `auth_sessions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `auth_sessions` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `ci_sessions`
 --
 
@@ -60,15 +51,6 @@ CREATE TABLE `ci_sessions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `ci_sessions`
---
-
-LOCK TABLES `ci_sessions` WRITE;
-/*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `denied_access`
 --
 
@@ -83,15 +65,6 @@ CREATE TABLE `denied_access` (
   PRIMARY KEY (`ai`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `denied_access`
---
-
-LOCK TABLES `denied_access` WRITE;
-/*!40000 ALTER TABLE `denied_access` DISABLE KEYS */;
-/*!40000 ALTER TABLE `denied_access` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `groups`
@@ -111,16 +84,6 @@ CREATE TABLE `groups` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `groups`
---
-
-LOCK TABLES `groups` WRITE;
-/*!40000 ALTER TABLE `groups` DISABLE KEYS */;
-INSERT INTO `groups` VALUES (1,'admin','Group for site administrators','2017-01-27 17:09:16',1),(2,'user','Group for site administrators','2017-01-27 17:09:27',1);
-/*!40000 ALTER TABLE `groups` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `ips_on_hold`
 --
 
@@ -134,15 +97,6 @@ CREATE TABLE `ips_on_hold` (
   PRIMARY KEY (`ai`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `ips_on_hold`
---
-
-LOCK TABLES `ips_on_hold` WRITE;
-/*!40000 ALTER TABLE `ips_on_hold` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ips_on_hold` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `login_errors`
@@ -159,15 +113,6 @@ CREATE TABLE `login_errors` (
   PRIMARY KEY (`ai`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `login_errors`
---
-
-LOCK TABLES `login_errors` WRITE;
-/*!40000 ALTER TABLE `login_errors` DISABLE KEYS */;
-/*!40000 ALTER TABLE `login_errors` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `modules`
@@ -187,15 +132,6 @@ CREATE TABLE `modules` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `modules`
---
-
-LOCK TABLES `modules` WRITE;
-/*!40000 ALTER TABLE `modules` DISABLE KEYS */;
-/*!40000 ALTER TABLE `modules` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `passwordStatuses`
 --
 
@@ -213,16 +149,6 @@ CREATE TABLE `passwordStatuses` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `passwordStatuses`
---
-
-LOCK TABLES `passwordStatuses` WRITE;
-/*!40000 ALTER TABLE `passwordStatuses` DISABLE KEYS */;
-INSERT INTO `passwordStatuses` VALUES (1,'NEW_USER','Newly Created User','2017-01-27 17:45:46',1);
-/*!40000 ALTER TABLE `passwordStatuses` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `permissions`
 --
 
@@ -237,15 +163,6 @@ CREATE TABLE `permissions` (
   PRIMARY KEY (`permissionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `permissions`
---
-
-LOCK TABLES `permissions` WRITE;
-/*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `userGroups`
@@ -269,16 +186,6 @@ CREATE TABLE `userGroups` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `userGroups`
---
-
-LOCK TABLES `userGroups` WRITE;
-/*!40000 ALTER TABLE `userGroups` DISABLE KEYS */;
-INSERT INTO `userGroups` VALUES (3,1,1,'2017-01-27 17:42:56',1);
-/*!40000 ALTER TABLE `userGroups` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `username_or_email_on_hold`
 --
 
@@ -292,15 +199,6 @@ CREATE TABLE `username_or_email_on_hold` (
   PRIMARY KEY (`ai`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `username_or_email_on_hold`
---
-
-LOCK TABLES `username_or_email_on_hold` WRITE;
-/*!40000 ALTER TABLE `username_or_email_on_hold` DISABLE KEYS */;
-/*!40000 ALTER TABLE `username_or_email_on_hold` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
@@ -329,16 +227,6 @@ CREATE TABLE `users` (
   CONSTRAINT `fk_users_2` FOREIGN KEY (`passwordStatus`) REFERENCES `passwordStatuses` (`passwordStatusID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'kigsmtua','mutuakiragu@gmail.com','$2y$11$SOiRLvxXcaODbP1QqqD3X.oEzowp5yhlA0Zjey/K7JixQv6SxqG2K',1,3,'2017-01-27 18:12:08','2017-01-27 18:12:08',1,'2017-01-27 18:12:08');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -349,4 +237,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-27 18:35:53
+-- Dump completed on 2017-01-27 21:25:16

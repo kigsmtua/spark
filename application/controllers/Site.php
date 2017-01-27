@@ -19,26 +19,27 @@ class Site extends Auth_Controller
   }
   public function index(){
 
+        echo "This is where the error happens to be";
+
   }
+
   public function login(){
+
     $this->load->library('authentication');
     $data = array();
     $data['mainContent'] = 'site/login';
     $this->load->view('route',$data);
   }
-
   public function about(){
     $data = array();
     $data['mainContent'] = 'site/pages/about';
     $this->load->view('route',$data);
   }
-
   public function contact(){
     $data = array();
     $data['mainContent'] = 'site/pages/contact';
     $this->load->view('route',$data);
   }
-
   public function logout(){
 
     $this->load->library('authentication');

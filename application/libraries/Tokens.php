@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * Community Auth - Form Tokens Library - V1.0.2
- * 
+ *
  * Community Auth is an open source authentication application for CodeIgniter 3
  *
  * @package     Community Auth
@@ -72,7 +72,7 @@ class tokens
 	private $scheme = 'http';
 
 	/**
-	 * Whether or not allow CI debug level 
+	 * Whether or not allow CI debug level
 	 * logging for the token jar.
 	 *
 	 * @var bool
@@ -83,7 +83,7 @@ class tokens
 	/**
 	 * Whether or not to encrypt the tokens.
 	 * This may be useful for debugging, but
-	 * SHOULD ALWAYS BE LEFT SET TO TRUE FOR 
+	 * SHOULD ALWAYS BE LEFT SET TO TRUE FOR
 	 * THE PRODUCTION WEBSITE!
 	 *
 	 * @var bool
@@ -101,13 +101,10 @@ class tokens
 			// Set the current scheme / protocol
 			$this->scheme = 'https';
 		}
-
 		$this->CI =& get_instance();
 		$this->CI->load->library('encryption');
-
 		// Set existing tokens in jar
 		$this->_set_jar();
-
 		// Check the default token name for match
 		$this->token_check();
 	}
@@ -121,7 +118,7 @@ class tokens
 	{
 		// If rename provided, check that token name
 		$this->name = ( $rename == '' ) ? config_item('token_name') : $rename;
-			
+
 		// If no token jar contents, no reason to proceed
 		if( ! empty( $this->jar ) )
 		{
@@ -168,7 +165,7 @@ class tokens
 
 		return FALSE;
 	}
-	
+
 	// -----------------------------------------------------------------------
 
 	/**
@@ -206,14 +203,14 @@ class tokens
 
 	/**
 	 * Alias for generate_form_token method (because it's shorter to type).
-	 * Anytime we have a need to use a form token, simply call this function to 
+	 * Anytime we have a need to use a form token, simply call this function to
 	 * set a token and retreive the value for placement in the form.
 	 */
 	public function token()
 	{
 		return $this->generate_form_token();
 	}
-	
+
 	// --------------------------------------------------------------------
 
 	/**
@@ -242,7 +239,7 @@ class tokens
 			$cookie_secure
 		);
 	}
-	
+
 	// -----------------------------------------------------------------------
 
 	/**
@@ -250,8 +247,8 @@ class tokens
 	 */
 	protected function _set_jar()
 	{
-		$token_cookie_name = $this->scheme == 'http' 
-			? config_item('http_tokens_cookie') 
+		$token_cookie_name = $this->scheme == 'http'
+			? config_item('http_tokens_cookie')
 			: config_item('https_tokens_cookie');
 
 		/**
@@ -260,7 +257,7 @@ class tokens
 		 */
 		if( empty( $this->jar ) )
 		{
-			$this->jar = ( isset( $_COOKIE[ $token_cookie_name ] ) ) 
+			$this->jar = ( isset( $_COOKIE[ $token_cookie_name ] ) )
 				? $this->unpack_tokens( $token_cookie_name )
 				: [];
 		}
@@ -273,7 +270,7 @@ class tokens
 
 		return $this->jar;
 	}
-	
+
 	// -----------------------------------------------------------------------
 
 	/**
@@ -302,7 +299,7 @@ class tokens
 
 		return $tokens;
 	}
-	
+
 	// -----------------------------------------------------------------------
 
 	/**
@@ -318,7 +315,7 @@ class tokens
 				$tokens[] = $token;
 			}
 		}
-		
+
 		// We have tokens to implode or we don't
 		$tokens = isset( $tokens ) ? implode( '|', $tokens ) : '';
 
@@ -339,9 +336,9 @@ class tokens
 
 		return $tokens;
 	}
-	
+
 	// -----------------------------------------------------------------------
 }
 
 /* End of file Tokens.php */
-/* Location: /community_auth/libraries/Tokens.php */ 
+/* Location: /community_auth/libraries/Tokens.php */
