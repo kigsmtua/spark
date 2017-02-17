@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @copyright   Copyright (c) 2017 - 2021, John Kiragu Mutua. (http://mutuakiragu.wordpress.com/)
  * @license     Apache 2
  */
- class  Permissions
+ class  Templating 
  {
 
     ##Basically we need to kae 
@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      **/
     function __construct()
     {
+      
         $this->CI = & get_instance();
     }
 
