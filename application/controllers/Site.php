@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * CodeIgniter Starter
  * Starter application for CodeIgniter 3
- * @package     Community Auth
+ * @package     CodeIgniter Starter Application
  * @author      John Kiragu Mutua
  * @copyright   Copyright (c) 2017 - 2021, John Kiragu. (http://.com/)
  * @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
@@ -18,7 +18,7 @@ class Site extends Auth_Controller
   {
       parent::__construct();
   }
-  
+
   public function index(){
 
   }
@@ -27,7 +27,6 @@ class Site extends Auth_Controller
     $this->load->library('authentication');
     if( strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post' )
         $this->require_min_level(1);
-
     $this->setup_login_form();
     $data = array();
     $data['mainContent'] = 'site/login';
