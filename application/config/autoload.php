@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','session','gearman','form_validation','encryption','tokens');
+$autoload['libraries'] = array('database','session','gearman','form_validation','encryption','tokens','authentication');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers
@@ -101,7 +101,7 @@ $autoload['helper'] = array('url','file','theme','serialization','cookie','form'
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('gearman','mailgun','authentication','db_tables','password_strength');
+$autoload['config'] = array('gearman','mail','authentication','db_tables','password_strength');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Language files

@@ -36,8 +36,7 @@ function auth_constants(){
 | you modify the login method in the User controller.
 | 
 */
-
-	define('LOGIN_PAGE', 'login');
+	define('LOGIN_PAGE', 'auth/login');
 
 }
 

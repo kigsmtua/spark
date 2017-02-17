@@ -213,7 +213,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     {
       // Log the error
       $this->log_error( $string );
-
       $this->login_error = TRUE;
     }
 

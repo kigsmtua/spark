@@ -41,6 +41,7 @@ $config['levels_and_roles'] = [
 |
 */
 
+##Basically 
 $config['groups'] = [
 	'employees' => 'manager,admin'
 ];
@@ -62,6 +63,16 @@ $config['groups'] = [
 
 $config['add_acl_query_to_auth_functions'] = FALSE;
 
+/*
+| -----------------------------------------------------------------
+|				USE GROUPS FOR AUTHENTICATION
+| -----------------------------------------------------------------
+| This configuration allows the user to be authenticated based on 
+| Groups rather than assigning permissions to the user values
+|
+*/
+
+$config['add_acl_query_uses_groups'] = FALSE;
 /*
 | -----------------------------------------------------------------
 |						MAX_ALLOWED_ATTEMPTS
@@ -153,7 +164,7 @@ $config['disallow_multiple_logins'] = FALSE;
 |
 */
 
-$config['encrypt_auth_identifiers'] = FALSE;
+$config['encrypt_auth_identifiers'] = TRUE;
 
 /*
 | -----------------------------------------------------------------
