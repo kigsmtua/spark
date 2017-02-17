@@ -61,7 +61,6 @@ $config['groups'] = [
 */
 
 $config['add_acl_query_to_auth_functions'] = FALSE;
-
 /*
 | -----------------------------------------------------------------
 |						MAX_ALLOWED_ATTEMPTS

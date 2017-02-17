@@ -46,6 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         #We want to include
         #Permissions library Will 
         #Load all the data that we need from ths session
+        #Meaning all the values that we actually want come up here
         $this
 
     }
