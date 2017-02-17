@@ -4,7 +4,7 @@
 $config['mailgun'] = array(
             
       'api_url'=>'api.mailgun.com/v1',
-      'api_username'=>'UserName'
+      'api_username'=>'UserName',
       'api_key'=>'Secret'
 );
 

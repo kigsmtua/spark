@@ -9,10 +9,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
  */
 
-require_once APPPATH . 'core/Auth_Controller.php';
 
-class Site extends Auth_Controller
+class Site extends MY_Controller
 {
+  
 
   function __construct()
   {
@@ -20,18 +20,8 @@ class Site extends Auth_Controller
   }
 
   public function index(){
-
-  }
-  public function login(){
-
-    $this->load->library('authentication');
-    if( strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post' )
-        $this->require_min_level(1);
-    $this->setup_login_form();
-    $data = array();
-    $data['mainContent'] = 'site/login';
-    $this->load->view('route',$data);
-
+ 
+     echo "This is the default page";
   }
 
   public function about(){
@@ -48,12 +38,5 @@ class Site extends Auth_Controller
     $data['mainContent'] = 'site/pages/contact';
     $this->load->view('route',$data);
 
-  }
-
-  public function logout(){
-    $this->load->library('authentication');
-    $this->authentication->logout();
-    $redirect_protocol = USE_SSL ? 'https' : NULL;
-    redirect( site_url( LOGIN_PAGE . '?logout=1', $redirect_protocol ) );
   }
 }
