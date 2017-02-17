@@ -22,9 +22,7 @@ class Login extends MY_Controller
     $data['mainContent'] = 'site/login';
     $this->load->view('route',$data);
   }
-  
-  ##Put it in simple terms all 
-  ##Values will actually be used for all value
+
   public function destroy(){
     $this->load->library('authentication');
     $this->authentication->logout();

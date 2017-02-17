@@ -1,5 +1,8 @@
 <?php
 /**
+ *
+ * @TODO build templated for actuall 
+ * @Application values
  * A base controller for CodeIgniter with view autoloading, layout support,
  * model loading, helper loading, asides/partials and per-controller 404
  *
@@ -116,8 +119,6 @@ class MY_Controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->_load_models();
-        $this->_load_helpers();
         /*
          * Set no-cache headers so pages are never cached by the browser.
          * This is necessary because if the browser caches a page, the
@@ -141,129 +142,7 @@ class MY_Controller extends CI_Controller
             $this->load->vars( $http_user_data );
         }
     }
-    /* --------------------------------------------------------------
-     * VIEW RENDERING
-     * ------------------------------------------------------------ */
-    /**
-     * Override CodeIgniter's despatch mechanism and route the request
-     * through to the appropriate action. Support custom 404 methods and
-     * autoload the view into the layout.
-     */
-    public function _remap($method)
-    {
-
-        ##Meaning the values that actually 
-        ##Come up in the layout of the application
-        ##All application values act
-        if (method_exists($this, $method))
-        {
-            call_user_func_array(array($this, $method), array_slice($this->uri->rsegments, 2));
-        }
-        else
-        {
-            if (method_exists($this, '_404'))
-            {
-                call_user_func_array(array($this, '_404'), array($method));
-            }
-            else
-            {
-                show_404(strtolower(get_class($this)).'/'.$method);
-            }
-        }
-        $this->_load_view();
-    }
-    /**
-     * Automatically load the view, allowing the developer to override if
-     * he or she wishes, otherwise being conventional.
-     */
-    protected function _load_view()
-    {
-        if ($this->view !== FALSE)
-        {
-            
-            ##Basically the loading of this 
-            ##View comes back to the application 
-            ##Values and all we want from this main
-            ##Application values
-            $view = (!empty($this->view)) ? $this->view : $this->router->directory . $this->router->class . '/' . $this->router->method;
-           
-            $data['yield'] = $this->load->view($view, $this->data, TRUE);
-            // Do we have any asides? Load them.
-            if (!empty($this->asides))
-            {
-                foreach ($this->asides as $name => $file)
-                {
-                    $data['yield_'.$name] = $this->load->view($file, $this->data, TRUE);
-                }
-            }
-            // Load in our existing data with the asides and view
-            $data = array_merge($this->data, $data);
-            $layout = FALSE;
-            // If we didn't specify the layout, try to guess it
-            if (!isset($this->layout))
-            {
-                if (file_exists(APPPATH . 'views/layouts/' . $this->router->class . '.php'))
-                {
-                    $layout = 'layouts/' . $this->router->class;
-                }
-                else
-                {
-                    $layout = 'layouts/application';
-                }
-            }
-            // If we did, use it
-            else if ($this->layout !== FALSE)
-            {
-                $layout = $this->layout;
-            }
-            // If $layout is FALSE, we're not interested in loading a layout, so output the view directly
-            if ($layout == FALSE)
-            {
-                $this->output->set_output($data['yield']);
-            }
-            // Otherwise? Load away :)
-            else
-            {
-                $this->load->view($layout, $data);
-            }
-        }
-    }
-    /* --------------------------------------------------------------
-     * MODEL LOADING
-     * ------------------------------------------------------------ */
-    /**
-     * Load models based on the $this->models array
-     */
-    private function _load_models()
-    {
-        foreach ($this->models as $model)
-        {
-            $this->load->model($this->_model_name($model), $model);
-        }
-    }
-    /**
-     * Returns the loadable model name based on
-     * the model formatting string
-     */
-    protected function _model_name($model)
-    {
-        return str_replace('%', $model, $this->model_string);
-    }
-    /* --------------------------------------------------------------
-     * HELPER LOADING
-     * ------------------------------------------------------------ */
-    /**
-     * Load helpers based on the $this->helpers array
-     */
-    private function _load_helpers()
-    {
-        foreach ($this->helpers as $helper)
-        {
-            $this->load->helper($helper);
-        }
-    }
-
-     
+   
     /**
      * Require a login by user of account type specified numerically.
      * User assumes your priveledges are linear in relationship to account types.
@@ -474,7 +353,6 @@ class MY_Controller extends CI_Controller
             return TRUE;
         return FALSE;
     }
-
     // --------------------------------------------------------------
     /**
      * Verify if user logged in by account type specified by name(s).

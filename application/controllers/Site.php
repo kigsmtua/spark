@@ -9,9 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
  */
 
-require_once APPPATH . 'core/Auth_Controller.php';
 
-class Site extends Auth_Controller
+class Site extends MY_Controller
 {
   
 
@@ -22,6 +21,7 @@ class Site extends Auth_Controller
 
   public function index(){
  
+     echo "This is the default page";
   }
 
   public function about(){
