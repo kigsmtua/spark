@@ -9,15 +9,10 @@ class Login extends MY_Controller
   
   function __construct(argument)
   {
-     ##There will be many errors
-     ##That  will occur here and 
-     ##Pass the main application value
      parent::__construct();
   }
 
   
-  ##This means the index function of the application  comes actually here
-  ##To actually be based on this implementation
   public function index(){
     $this->load->library('authentication');
     if( strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post' )
@@ -27,11 +22,13 @@ class Login extends MY_Controller
     $data['mainContent'] = 'site/login';
     $this->load->view('route',$data);
   }
-
-  ##Kill the session and redirect
-  ##The  user to the login page
+  
+  ##Put it in simple terms all 
+  ##Values will actually be used for all value
   public function destroy(){
-
-
+    $this->load->library('authentication');
+    $this->authentication->logout();
+    $redirect_protocol = USE_SSL ? 'https' : NULL;
+    redirect( site_url( LOGIN_PAGE . '?logout=1', $redirect_protocol ) );
   }
 }
