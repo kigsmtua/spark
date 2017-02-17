@@ -89,12 +89,15 @@ class MY_Controller extends CI_Controller
      */
     protected function _load_view()
     {
-        // If $this->view == FALSE, we don't want to load anything
         if ($this->view !== FALSE)
         {
-            // If $this->view isn't empty, load it. If it isn't, try and guess based on the controller and action name
+            
+            ##Basically the loading of this 
+            ##View comes back to the application 
+            ##Values and all we want from this main
+            ##Application values
             $view = (!empty($this->view)) ? $this->view : $this->router->directory . $this->router->class . '/' . $this->router->method;
-            // Load the view into $yield
+           
             $data['yield'] = $this->load->view($view, $this->data, TRUE);
             // Do we have any asides? Load them.
             if (!empty($this->asides))
