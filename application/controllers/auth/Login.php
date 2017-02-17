@@ -13,6 +13,7 @@ class Login extends MY_Controller
   }
   
   public function index(){
+
     $this->load->library('authentication');
     if( strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post' )
         $this->require_min_level(1);

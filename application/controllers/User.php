@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * CodeIgniter Starter
  * Starter application for CodeIgniter 3
- * @package     Community Auth
+ * @package     Codeignitor Starter
  * @author      John Kiragu Mutua
  * @copyright   Copyright (c) 2017 - 2021, John Kiragu. (http://.com/)
  * @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
@@ -54,40 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            'createdBy'=>1,
            'dateCreated'=>date('Y-m-d H:i:s')
        ];
-       $this->form_validation->set_data( $user_data );
-       $validation_rules = [
-       [
-         'field' => 'userName',
-         'label' => 'userName',
-         'rules' => 'max_length[12]|is_unique[' . config_item('user_table') . '.userName]',
-               'errors' => [
-                   'is_unique' => 'Username already in use.'
-          ]
-       ],
-       [
-         'field' => 'password',
-         'label' => 'password',
-         'rules' => [
-                   'trim',
-                   'required',
-                   [
-                       '_check_password_strength',
-                       [ $this->validation_callables, '_check_password_strength' ]
-                   ]
-               ],
-               'errors' => [
-                   'required' => 'The password field is required.'
-               ]
-       ],
-       [
-               'field'  => 'emailAddress',
-               'label'  => 'emailAddress',
-               'rules'  => 'trim|required|valid_email|is_unique[' . config_item('user_table') . '.emailAddress]',
-               'errors' => [
-                   'is_unique' => 'Email address already in use.'
-               ]
-     ]
-   ];
+       
 
    $this->form_validation->set_rules( $validation_rules );
 

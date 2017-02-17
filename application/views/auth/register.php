@@ -9,12 +9,12 @@
                 <h4 class="text-center mb5">Create a new account</h4>
                 <p class="text-center">Please enter your credentials below</p>
                 <div class="mb30"></div>
-                <form action="<?php echo base_url()?>user/create" method="post">
+                <form action="<?php echo base_url()?>auth/register/store" method="post">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="input-group mb15">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Enter Firstname">
+                                <input name = "username" type="text" class="form-control" placeholder="Enter Firstname">
                             </div><!-- input-group -->
                         </div>
                         <div class="col-sm-6">
@@ -29,13 +29,13 @@
                         <div class="col-sm-6">
                             <div class="input-group mb15">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input type="email" class="form-control" placeholder="Enter Email Address">
+                                <input name ="email" type="email" class="form-control" placeholder="Enter Email Address">
                             </div><!-- input-group -->
                         </div>
                         <div class="col-sm-6">
                             <div class="input-group mb15">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input type="password" class="form-control" placeholder="Enter Password">
+                                <input name ="password" type="password" class="form-control" placeholder="Enter Password">
                             </div><!-- input-group -->
                           </div>
                         </div>
@@ -54,7 +54,7 @@
                 </form>
             </div><!-- panel-body -->
             <div class="panel-footer">
-                <a href="signin.html" class="btn btn-primary btn-block">Already a Member? Sign In</a>
+                <a href="<?php echo base_url()?>auth/login" class="btn btn-primary btn-block">Already a Member? Sign In</a>
             </div><!-- panel-footer -->
         </div><!-- panel -->
 

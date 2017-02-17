@@ -9,17 +9,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
  */
 
- class Dashboard extends CI_Controller
+ class Dashboard extends MY_Controller
  {
 
    function __construct()
    {
        parent::__construct();
+
    }
 
    function index(){
      $data = array();
      $data['mainContent']='dashboard';
      $this->load->view('route',$data);
-   }
+  }
  }
